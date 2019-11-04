@@ -1,0 +1,41 @@
+.card{
+    background-color: #f2f2f2;
+}
+
+.corFundo{
+    background-color: #ffcd00;
+}
+
+.logo{
+    width: 75px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.logoBars{
+    width: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    right: 1000px;
+}
+#produto{
+    background-color: #fff;
+    margin-bottom: 10px;
+    height: 300px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 8px 0.1em rgba(138, 138, 138, 0.226);
+}
+
+.titulo{
+    border-bottom: 1px solid #f2f2f2;
+}
+
+button.addCarrinho{
+    background-color: #22b14c;
+    color: #fff;
+    float: right;
+}
+.preco{
+    color: #22b14c;
+}
