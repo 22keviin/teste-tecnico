@@ -1,27 +1,66 @@
 <div class="card">
 
-    <div class="row corFundo">
+    <div class="row navigationBar fixed-top">
 
-        <img class="logo col-lg-11 col-md-11 col-sm-11" src="../../assets/imagens/buscape_1_1.png">
-
-    </div>
-
-    <div class="row nav-bar">
-        <img (click)="abrirCarrinho()" class="logoBars" src="../../assets/imagens/menu-button-of-three-horizontal-lines.png" class="col-lg-11 col-md-11 col-sm-11">
-
-        <div class="col-lg-11 col-md-11 col-sm-11"></div>
-    </div>
-
-    <!--div class="col">
-            <img class="logoPrincipal float-left" src="../../assets/images/buscape-logo.png">
+        <div class="col-lg-11 col-md-11 col-sm-11">
+            <img class="logo" src="../../assets/imagens/buscape_1_1.png">
         </div>
-        <div class="col float-right">
-            <p class="cont float-right">{{this.itensCarrinho.length}}</p>
-            <img (click)="abrirCarrinho()" class=" float-right navbar-toggler logoBars" type="button-warning"
-                data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado"
-                aria-expanded="false" src="../../assets/images/bars-solid.svg">
-        </div-->
 
+        <div class="col-lg-1 col-md-1 col-sm-1">
+            <p class="cont float-right">{{this.itensCarrinho.lenght}}</p>
+            <img (click)="abrirCarrinho()" class="cartBars navbar-default navbar-fixed-top" data-toggle="collapse"
+                data-target="#conteudoNavbar" aria-expanded="false" aria-controls="conteudoNavbar"
+                src="../../assets/imagens/menu-button-of-three-horizontal-lines.png">
+        </div>
+
+        <!--Colocar os itens no carrinho-->
+        <div class="collapse navbar-collapse" id="conteudoNavbar">
+            <div *ngFor="let produto of itensCarrinho" class="container-fluid">
+                <div class="">
+                    <div class="row listaCarrinho colorCart">
+                        <div class="col-lg-1 col-md-2 col-sm-3 my-auto">
+                            <img style="width: 100px" src="{{produto.product.images[0]}}">
+                        </div>
+
+                        <div class="col">
+                            <h5 class="title" style="color: #fff">{{produto.product.name}}</h5>
+                            <p class="font-height-bold">{{produto.product.price.installments}} x R$
+                                {{produto.product.price.installmentValue}}</p>
+                            <p class="font-height-bold">R$ {{produto.product.price.value}} à vista</p>
+                        </div>
+
+                        <div class="col-1">
+                            <a (click)="deletarItem(produto.product.id)" class="deleta text-weight-bold">x</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conteiner-fluid corSubTotal">
+                <div class="container total">
+                    <div class="row">
+                        <p class="text text-weight-bold">Subtotal</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row font-weight-bold">
+                        <div class="col">
+                            <p class="">10 X {{this.parcial}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row font-weight-bold">
+                        <div class="col">
+                            <p class="">ou R$ {{this.total}} à vista</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Produtos-->
     <div *ngFor="let i of items">
 
         <div class="body">
@@ -35,16 +74,29 @@
 
                     <div class="col-lg-7 col-md-7 col-sm-7">
 
-                        <h3 class="titulo">{{i.product.name}}</h3>
-                        <button class="btn btn-primary">MELHOR PREÇO</button>
-                        <p><span class="preco" style="font-size: 20px;">{{i.product.price.installments}} x </span>
-                            <span class="preco" style="font-size: 30px;">R$ {{i.product.price.installmentValue}}</span>
-                        </p>
-                        <p style="font-size: 12px;">ou <span class="preco">R$ {{i.product.price.value}}</span> á
-                            vista</p>
+                        <h3 class="titulo">{{i.product.name}} <img src="../../assets/imagens/heart.png"></h3>
 
-                        <button class="btn btn-success addCarrinho" (click)="adicionarCarrinho(i.product.id)">Adicionar
-                            ao carrinho ></button>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="menor-preco">MELHOR PREÇO</button>
+                                <div class="preco">
+                                    <p><span class="preco" style="font-size: 20px;">{{i.product.price.installments}} x
+                                        </span>
+                                        <span class="preco" style="font-size: 30px;">R${{i.product.price.installmentValue}}</span>
+                                    </p>
+
+                                    <p style="font-size: 12px;">ou <span class="preco-descri">R$
+                                            {{i.product.price.value}}</span> á
+                                        vista</p>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-success addCart"
+                                (click)="adicionarCarrinho(i.product.id)">Adicionar
+                                ao carrinho ></button>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

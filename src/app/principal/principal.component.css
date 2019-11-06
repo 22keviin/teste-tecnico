@@ -1,24 +1,25 @@
+
 .card{
     background-color: #f2f2f2;
+    margin-top: 50px;
 }
 
-.corFundo{
+.navigationBar{
     background-color: #ffcd00;
 }
 
 .logo{
-    width: 75px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    width: 80px;
+    margin-left: 25px;
 }
 
-.logoBars{
-    width: 40px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.cartBars{
+    width: 35px;
+    margin-top: 10px;
+    margin-left: 20px;
     cursor: pointer;
-    right: 1000px;
 }
+
 #produto{
     background-color: #fff;
     margin-bottom: 10px;
@@ -31,11 +32,44 @@
     border-bottom: 1px solid #f2f2f2;
 }
 
-button.addCarrinho{
+button.addCart{
     background-color: #22b14c;
     color: #fff;
     float: right;
+    height: 40px;
+    margin-top: 80px;
 }
 .preco{
     color: #22b14c;
+    margin-top: 80px;
+    font-weight: bold;
+}
+.menor-preco{
+    cursor: auto;
+    border-radius: 3px 20px 8pc 40px;
+    padding: 3px 0 0 3px;
+    float: left; text-align: center;
+    text-decoration: none;
+    font: normal 16p Myriad pro, Helvetica, Arial, sans-serif;
+    text-shadow: 0px 1px 0px #000;
+    color: #e6e2cf;
+    position: relative; text-shadow: 1px 0 0 #000;
+    background: #046dc2; min-width: 181px; width: auto;
+}
+
+.conteiner-fluid{
+    background-color: #dbb000;
+}
+
+.colorCart{
+    background-color: #c59e00;
+    border-top: 10px solid #c59e00;
+    padding-left: 2em;
+    margin-bottom: 2px;
+    box-shadow: 1px 1px 1px 1px rgba(138, 138, 138, 0.226);
+}
+
+.deleta{
+    color: black;
+    font: bold;
 }

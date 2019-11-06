@@ -79,18 +79,48 @@ export class PrincipalComponent implements OnInit {
 
   itensCarrinho = [];
 
-  adicionarCarrinho(id){
+  total = 0;
+  parcial = 0;
+
+  adicionarCarrinho(id) {
 
     let obj;
+    let cont = 0
 
-    this.items.filter(d => { if(d.product.id == id) obj = d });
+    this.items.filter(d => { if (d.product.id == id) obj = d });
 
-    console.log(obj);
     this.itensCarrinho.push(obj);
+
+    this.total = this.total + obj.product.price.value;
+    this.parcial = this.parcial + obj.product.price.installmentValue;
+
+    console.log(this.total);
+
+    for (let i = 0; i <= this.itensCarrinho.length - 1; i++) {
+      console.log(this.itensCarrinho[i].product.price.value)
+      if (id == this.itensCarrinho[i].product.id) {
+
+      }
+    }
   }
 
-  abrirCarrinho(){
-    console.log(this.itensCarrinho);
+  abrirCarrinho() {
+    this.itensCarrinho;
+    console.log(this.itensCarrinho)
+  }
+
+  deletarItem(id) {
+    let arrayAux = []
+    let parar = false
+
+    for (let i = 0; i <= this.itensCarrinho.length - 1; i++) {
+      if (id != this.itensCarrinho[i].product.id) {
+        arrayAux.push(this.itensCarrinho[i])
+      } else {
+        this.total = this.total - this.itensCarrinho[i].product.price.value
+        this.parcial = this.parcial - this.itensCarrinho[i].product.price.installmentValue
+      }
+    }
+    this.itensCarrinho = arrayAux
   }
 }
-
