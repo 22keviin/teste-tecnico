@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-lg-1 col-md-1 col-sm-1">
-            <p class="cont float-right">{{this.itensCarrinho.lenght}}</p>
+            <p class="cont float-right">{{this.itensCarrinho.length}}</p>
             <img (click)="abrirCarrinho()" class="cartBars navbar-default navbar-fixed-top" data-toggle="collapse"
                 data-target="#conteudoNavbar" aria-expanded="false" aria-controls="conteudoNavbar"
                 src="../../assets/imagens/menu-button-of-three-horizontal-lines.png">
@@ -30,23 +30,23 @@
                         </div>
 
                         <div class="col-1">
-                            <a (click)="deletarItem(produto.product.id)" class="deleta text-weight-bold">x</a>
+                            <a (click)="deletarItem(produto.product.id)" class="deleta">x</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="conteiner-fluid corSubTotal">
+            <div class="conteiner-fluid subTotal">
                 <div class="container total">
-                    <div class="row">
-                        <p class="text text-weight-bold">Subtotal</p>
+                    <div class="col col-md-12">
+                            <p class="subTotal">Subtotal</p>
                     </div>
                 </div>
 
                 <div class="container">
                     <div class="row font-weight-bold">
                         <div class="col">
-                            <p class="">10 X {{this.parcial}}</p>
+                            <p class="">10 X R${{this.parcial}}</p>
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                             </div>
 
                             <button class="btn btn-success addCart"
-                                (click)="adicionarCarrinho(i.product.id)">Adicionar
+                                (click)="addCarrinho(i.product.id)">Adicionar
                                 ao carrinho ></button>
                         </div>
 
